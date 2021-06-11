@@ -1,15 +1,20 @@
 package com.company;
 
-public class Worker
-{
-    private String Name;
-    private Double Salary;
-    private Skills Skill;
+import java.util.Random;
 
-    public Worker (String Name, Double Salary, Skills Skill)
-    {
-        this.Name   = Name;
-        this.Salary = Salary;
-        this.Skill  = Skill;
+public class Worker extends Character implements GenerateRandomInteger, GenerateRandomDouble
+{
+    private Double Salary;
+
+    @Override
+    public Double DoubleGenerate() {
+        Random rn = new Random();
+        return rn.nextDouble() * 100;
+    }
+
+    @Override
+    public Integer IntegerGenerate(Integer bound) {
+        Random rn = new Random();
+        return rn.nextInt(bound);
     }
 }

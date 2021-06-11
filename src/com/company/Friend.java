@@ -1,31 +1,46 @@
 package com.company;
 
-public class Friend
-{
-    private String Name;
-    private String Type;
-    private Double Price;
-    private Double RiskInLate;
-    private Double RiskInFuckup;
-    private Skills Skill;
 
-    public Friend (String Name, String Type, Double Price, Double RiskInLate, Double RiskInFuckup, Skills Skill)
-    {
-        this.Name           = Name;
-        this.Type           = Type;
-        this.Price          = Price;
-        this.RiskInLate     = RiskInLate;
-        this.RiskInFuckup   = RiskInFuckup;
-        this.Skill          = Skill;
-    }
+
+public class Friend extends Worker
+{
+    private Double  Price;
+    private Integer RiskInLate;
+    private Integer RiskInFuckup;
+    private String  Type;
+
 
     public String toString()
     {
         return  "Name: "                    + Name +
+                "\nSurname: "               + Surname +
                 "\nPrice: "                 + Price + "zł" +
                 "\nRisk in being late: "    + RiskInLate +"%" +
-                "\nRisk to repair: "        + RiskInFuckup +"%" +
-                "\nSkills: "                + Skill;
+                "\nRisk to repair: "        + RiskInFuckup +"%";
+    }
+
+    //friend generator, cos player doesn't have any :'(
+    public void SetType() {
+        int Rand = IntegerGenerate(2);
+
+        if (Rand == 0) {
+            Type = "Best student";
+            this.Price = 150.0;
+            this.RiskInLate = 10;
+            this.RiskInFuckup = 10;
+        }
+        if (Rand == 1) {
+            Type = "Medium student";
+            this.Price = 100.0;
+            this.RiskInLate = 10;
+            this.RiskInFuckup = 9;
+        }
+        if (Rand == 2) {
+            Type = "The guy, who thinks he's da best ;)";
+            this.Price = 50.0;
+            this.RiskInLate = 8;
+            this.RiskInFuckup = 8;
+        }
     }
 }
 

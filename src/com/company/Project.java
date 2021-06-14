@@ -2,7 +2,6 @@ package com.company;
 
 import java.util.Random;
 
-import static com.company.Project.DifficultyLevel.*;
 
 public class Project implements GenerateRandomInteger, GenerateRandomDouble
 {
@@ -27,35 +26,13 @@ public class Project implements GenerateRandomInteger, GenerateRandomDouble
     private Integer PrestaShopTime=0;
     Integer[]       WorkList = new Integer[]{FrontEndTime, BackEndTime, DatabaseTime, MobileTime, WordPressTime, PrestaShopTime};
 
-    public void setProjectAvailable()
-    {
-        this.IsAvailable = true;
-    }
-
-    public void deleteDoneProject()
-    {
-        this.IsDone = true;
-    }
-
-    @Override
-    public Double DoubleGenerate() {
-        Random rn = new Random();
-        return rn.nextDouble() * 100;
-    }
-
-    @Override
-    public Integer IntegerGenerate(Integer bound) {
-        Random rn = new Random();
-        return rn.nextInt(bound);
-    }
-
-    public enum DifficultyLevel {
+    public enum Difficulty {
         Easy,
-        Medium,
-        High;
+        High,
+        Medium
     }
 
-    public Project(DifficultyLevel Difficulty) {
+    public Project(Difficulty Difficulty) {
         int Left    = 0;
         int Part1   = 0;
         int Part2   = 0;
@@ -110,5 +87,29 @@ public class Project implements GenerateRandomInteger, GenerateRandomDouble
                 break;
         }
     }
+
+    @Override
+    public Double DoubleGenerate() {
+        Random rn = new Random();
+        return rn.nextDouble() * 100;
+    }
+
+    @Override
+    public Integer IntegerGenerate(Integer bound) {
+        Random rn = new Random();
+        return rn.nextInt(bound);
+    }
+
+    public void setProjectAvailable()
+    {
+        this.IsAvailable = true;
+    }
+
+    public void deleteDoneProject()
+    {
+        this.IsDone = true;
+    }
+
+
 }
 

@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class Client extends Character implements GenerateRandomInteger
 {
-    private String  ClientGroup;
     private Integer RiskInPayment;
     private Integer RiskInPenalty;
     private Integer RiskAfterFuckup;
@@ -15,40 +14,40 @@ public class Client extends Character implements GenerateRandomInteger
         return rn.nextInt(bound);
     }
 
-    public enum Type
+    public enum ClientGroup
     {
         Chill,
         Strict,
-        Skrwl;
+        Skrwl
     }
 
-    public Client (Type Type)
+    public Client (ClientGroup Group)
     {
-        switch (Type)
+        switch (Group)
         {
             case Chill:
-                this.Name = Names[IntegerGenerate(6)];
-                this.Surname = Surnames[IntegerGenerate(10)];
-                this.Age = IntegerGenerate(100)+1;
-                this.RiskInPayment = IntegerGenerate(14);
-                this.RiskInPenalty = IntegerGenerate(13);
-                this.RiskAfterFuckup = 1;
+                this.Name               = Names[IntegerGenerate(6)];
+                this.Surname            = Surnames[IntegerGenerate(10)];
+                this.Age                = IntegerGenerate(100)+1;
+                this.RiskInPayment      = IntegerGenerate(14);
+                this.RiskInPenalty      = IntegerGenerate(13);
+                this.RiskAfterFuckup    = 1;
                 break;
             case Strict:
-                this.Name = Names[IntegerGenerate(6)];
-                this.Surname = Surnames[IntegerGenerate(10)];
-                this.Age = IntegerGenerate(100)+1;
-                this.RiskInPayment = 11;
-                this.RiskInPenalty = 11;
-                this.RiskAfterFuckup = IntegerGenerate(15);
+                this.Name               = Names[IntegerGenerate(6)];
+                this.Surname            = Surnames[IntegerGenerate(10)];
+                this.Age                = IntegerGenerate(100)+1;
+                this.RiskInPayment      = 11;
+                this.RiskInPenalty      = 11;
+                this.RiskAfterFuckup    = IntegerGenerate(15);
                 break;
             case Skrwl:
-                this.Name = Names[IntegerGenerate(6)];
-                this.Surname = Surnames[IntegerGenerate(10)];
-                this.Age = IntegerGenerate(100)+1;
-                this.RiskInPayment = IntegerGenerate(13);
-                this.RiskInPenalty = 11;
-                this.RiskAfterFuckup = 11;
+                this.Name               = Names[IntegerGenerate(6)];
+                this.Surname            = Surnames[IntegerGenerate(10)];
+                this.Age                = IntegerGenerate(100)+1;
+                this.RiskInPayment      = IntegerGenerate(13);
+                this.RiskInPenalty      = 11;
+                this.RiskAfterFuckup    = 11;
         }
     }
 

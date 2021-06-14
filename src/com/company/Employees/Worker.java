@@ -1,4 +1,8 @@
-package com.company;
+package com.company.Employees;
+
+import com.company.Character;
+import com.company.GenerateRandomDouble;
+import com.company.GenerateRandomInteger;
 
 import java.util.Random;
 

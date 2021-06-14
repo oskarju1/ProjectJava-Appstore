@@ -15,6 +15,8 @@ public class Game extends Character implements GenerateRandomInteger
     private boolean     Prestashop;
     public String[]     WorkersList;
     public String[]     ProjectsList;
+    public Integer x = 0;
+    public static Scanner Key = new Scanner(System.in);
 
 
     public Game(String Name, String Surname, Integer Age)
@@ -38,38 +40,37 @@ public class Game extends Character implements GenerateRandomInteger
         return rn.nextInt(bound);
     }
 
-    public static void CLS() //clear console
+    /*public static void CLS() //clear console
     {
         System.out.print("\033[H\033[2J");
         System.out.flush();
-    }
+    }*/
 
     public void Round(Game Game)
     {
-        Integer x = 0;
-        Scanner Key = new Scanner(System.in);
+
         while (x != 23131) {
             System.out.println("Today is " + StartDate + " whatcha wanna do?");
-            System.out.println("(1)");
-            System.out.println("(2)");
-            System.out.println("(3)");
-            System.out.println("(4)");
-            System.out.println("(5)");
-            System.out.println("(6)");
-            System.out.println("(7)");
-            System.out.println("(8)");
-            System.out.println("(9)");
+            System.out.println("(1) Open projects in progress list.");
+            System.out.println("(2) Choose new project.");
+            System.out.println("(3) Hire worker.");
+            System.out.println("(4) Check money status.");
+            System.out.println("(5) Search for clients.");
+            System.out.println("(6) Program.");
+            System.out.println("(7) Test.");
+            System.out.println("(8) Modify workers.");
+            System.out.println("(9) Settle ZUS.");
             System.out.println("(10) Close app.");
 
             x = Key.nextInt();
-            CLS();
+            //CLS();
             switch (x)
             {
                 case 1:
-                    System.out.println("1");
+                    Project.openProjects(Game);
                     break;
                 case 2:
-                    System.out.println("2");
+                    Project.newProject(Game);
                     break;
                 case 3:
                     ////////////

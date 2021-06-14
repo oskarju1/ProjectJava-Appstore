@@ -1,6 +1,4 @@
-package com.company;
-
-import com.company.Employees.*;
+package com.company.Employees;
 
 public class Friend extends Programist
 {
@@ -19,7 +17,7 @@ public class Friend extends Programist
                 "\nRisk to repair: "        + RiskInFuckup +"%";
     }
 
-    //friend generator, cos player doesn't have any :'(
+
     public void SetType() {
         int Rand = IntegerGenerate(2);
 

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class Game extends Character implements GenerateRandomInteger
 {
     public  LocalDate   StartDate = LocalDate.of(2020,1, 1);
@@ -48,7 +49,6 @@ public class Game extends Character implements GenerateRandomInteger
 
     public void Round(Game Game)
     {
-
         while (x != 23131) {
             System.out.println("Today is " + StartDate + " whatcha wanna do?");
             System.out.println("(1) Open projects in progress list.");
@@ -79,7 +79,7 @@ public class Game extends Character implements GenerateRandomInteger
                     ////////////
                     break;
                 case 5:
-                    ///////////
+                    Client.AvailableClients();
                     break;
                 case 6:
                     ///////////

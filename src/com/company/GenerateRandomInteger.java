@@ -1,5 +1,6 @@
 package com.company;
 
-public interface GenerateRandomInteger {
+public interface GenerateRandomInteger
+    {
     Integer IntegerGenerate(Integer bound);
-}
+    }

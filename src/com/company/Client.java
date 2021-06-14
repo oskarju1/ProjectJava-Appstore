@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Client extends Character implements GenerateRandomInteger
@@ -7,9 +8,11 @@ public class Client extends Character implements GenerateRandomInteger
     private Integer RiskInPayment;
     private Integer RiskInPenalty;
     private Integer RiskAfterFuckup;
+    public static ArrayList<Client> ClientsList = new ArrayList<>(10);
 
     @Override
-    public Integer IntegerGenerate(Integer bound) {
+    public Integer IntegerGenerate(Integer bound)
+    {
         Random rn = new Random();
         return rn.nextInt(bound);
     }
@@ -49,6 +52,42 @@ public class Client extends Character implements GenerateRandomInteger
                 this.RiskInPenalty      = 11;
                 this.RiskAfterFuckup    = 11;
         }
+        for(Integer i=0; i<10; i++)
+        {
+            Client y = null;
+            Integer Rand = IntegerGenerate(2);
+            if (Rand == 0)
+            {
+                y = new Client(ClientGroup.Chill);
+            }
+            else if (Rand == 1)
+            {
+                y = new Client(ClientGroup.Strict);
+            }
+            else if (Rand == 2)
+            {
+                y = new Client(ClientGroup.Skrwl);
+            }
+            ClientsList.add(y);
+        }
     }
 
+    public static void AvailableClients()
+    {
+        //System.out.println(ClientsList.size());
+        for(Integer i=0; i<ClientsList.size(); i++)
+        {
+            System.out.println((i+1) + ". " + ClientsList.get(i) + "\n");
+        }
+    }
+
+    public String toString()
+    {
+        return  "Name:\t"               + Name +
+                "\nSurname:\t"          + Surname +
+                "\nAge:\t"              + Age +
+                "\nRiskInPayment:\t"    + RiskInPayment +
+                "\nRiskInPenalty:\t"    + RiskInPenalty +
+                "\nRiskAfterFuckup:\t"  + RiskAfterFuckup;
+    }
 }

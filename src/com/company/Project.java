@@ -9,7 +9,6 @@ import static com.company.Game.Key;
 public class Project implements GenerateRandomInteger, GenerateRandomDouble
 {
     private String  Name;
-    private Integer ManDays;
     private Client  Client;
     private Integer Deadline;
     private Double  Punishment;
@@ -30,7 +29,7 @@ public class Project implements GenerateRandomInteger, GenerateRandomDouble
     Integer[]       WorkList = new Integer[]{FrontEndTime, BackEndTime, DatabaseTime, MobileTime, WordPressTime, PrestaShopTime};
     public static ArrayList<Project> AvailableProjects = new ArrayList<>();
     public static ArrayList<Project> StartedProjects = new ArrayList<>();
-    public ArrayList<Project> DeletedProjects = new ArrayList<>();
+    public static ArrayList<Project> DeletedProjects = new ArrayList<>();
 
     public enum Difficulty {
         Easy,
@@ -95,34 +94,35 @@ public class Project implements GenerateRandomInteger, GenerateRandomDouble
     }
 
     @Override
-    public Double DoubleGenerate() {
+    public Double DoubleGenerate()
+    {
         Random rn = new Random();
         return rn.nextDouble() * 100;
     }
 
     @Override
-    public Integer IntegerGenerate(Integer bound) {
+    public Integer IntegerGenerate(Integer bound)
+    {
         Random rn = new Random();
         return rn.nextInt(bound);
-    }
-
-    public void setProjectAvailable()
-    {
-        this.IsAvailable = true;
     }
 
     public static void deleteDoneProject(Integer Index)
     {
         Project.IsDone = true;
+        DeletedProjects.add(StartedProjects.get(Index-1));
         StartedProjects.remove(Index-1);
     }
 
 
-    public static void openProjects(Game Game){
-        for(int i=0; i<StartedProjects.size(); i++){
+    public static void openProjects(Game Game)
+    {
+        for(Integer i=0; i<StartedProjects.size(); i++)
+        {
             System.out.println((i+1) + ". " + StartedProjects.get(i) + "\n");
         }
-        if (StartedProjects.size() != 0) {
+        if (StartedProjects.size() != 0)
+        {
             System.out.println("Wanna return a project? Type number of project.");
             Game.x = Key.nextInt();
             deleteDoneProject(Game.x);
@@ -131,7 +131,8 @@ public class Project implements GenerateRandomInteger, GenerateRandomDouble
     }
 
 
-    public static void newProject(Game Game){
+    public static void newProject(Game Game)
+    {
         System.out.println("(1) Easy");
         System.out.println("(2) Medium");
         System.out.println("(3) Hard");
